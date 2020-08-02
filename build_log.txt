@@ -1,0 +1,569 @@
+chmod +x *.sh
+g++ -std=c++11 -std=c++11 -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/image_opencv.cpp -o obj/image_opencv.o
+./src/image_opencv.cpp: In function ‘void draw_detections_cv_v3(void**, detection*, int, float, char**, image**, int, int)’:
+./src/image_opencv.cpp:910:23: warning: variable ‘rgb’ set but not used [-Wunused-but-set-variable]
+                 float rgb[3];
+                       ^~~
+./src/image_opencv.cpp: In function ‘void cv_draw_object(image, float*, int, int, int*, float*, int*, int, char**)’:
+./src/image_opencv.cpp:1391:14: warning: unused variable ‘buff’ [-Wunused-variable]
+         char buff[100];
+              ^~~~
+./src/image_opencv.cpp:1367:9: warning: unused variable ‘it_tb_res’ [-Wunused-variable]
+     int it_tb_res = cv::createTrackbar(it_trackbar_name, window_name, &it_trackbar_value, 1000);
+         ^~~~~~~~~
+./src/image_opencv.cpp:1371:9: warning: unused variable ‘lr_tb_res’ [-Wunused-variable]
+     int lr_tb_res = cv::createTrackbar(lr_trackbar_name, window_name, &lr_trackbar_value, 20);
+         ^~~~~~~~~
+./src/image_opencv.cpp:1375:9: warning: unused variable ‘cl_tb_res’ [-Wunused-variable]
+     int cl_tb_res = cv::createTrackbar(cl_trackbar_name, window_name, &cl_trackbar_value, classes-1);
+         ^~~~~~~~~
+./src/image_opencv.cpp:1378:9: warning: unused variable ‘bo_tb_res’ [-Wunused-variable]
+     int bo_tb_res = cv::createTrackbar(bo_trackbar_name, window_name, boxonly, 1);
+         ^~~~~~~~~
+g++ -std=c++11 -std=c++11 -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/http_stream.cpp -o obj/http_stream.o
+In file included from ./src/http_stream.cpp:580:0:
+./src/httplib.h:129:0: warning: "INVALID_SOCKET" redefined
+ #define INVALID_SOCKET (-1)
+ 
+./src/http_stream.cpp:73:0: note: this is the location of the previous definition
+ #define INVALID_SOCKET -1
+ 
+./src/http_stream.cpp: In member function ‘bool JSON_sender::write(const char*)’:
+./src/http_stream.cpp:249:21: warning: unused variable ‘n’ [-Wunused-variable]
+                 int n = _write(client, outputbuf, outlen);
+                     ^
+./src/http_stream.cpp: In member function ‘bool MJPG_sender::write(const cv::Mat&)’:
+./src/http_stream.cpp:507:113: warning: format ‘%zu’ expects argument of type ‘size_t’, but argument 3 has type ‘int’ [-Wformat=]
+                 sprintf(head, "--mjpegstream\r\nContent-Type: image/jpeg\r\nContent-Length: %zu\r\n\r\n", outlen);
+                                                                                                                 ^
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/gemm.c -o obj/gemm.o
+./src/gemm.c: In function ‘convolution_2d’:
+./src/gemm.c:2038:15: warning: unused variable ‘out_w’ [-Wunused-variable]
+     const int out_w = (w + 2 * pad - ksize) / stride + 1;    // output_width=input_width for stride=1 and pad=1
+               ^~~~~
+./src/gemm.c:2037:15: warning: unused variable ‘out_h’ [-Wunused-variable]
+     const int out_h = (h + 2 * pad - ksize) / stride + 1;    // output_height=input_height for stride=1 and pad=1
+               ^~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/utils.c -o obj/utils.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/dark_cuda.c -o obj/dark_cuda.o
+./src/dark_cuda.c: In function ‘cudnn_check_error_extended’:
+./src/dark_cuda.c:224:20: warning: comparison between ‘cudaError_t {aka enum cudaError}’ and ‘enum <anonymous>’ [-Wenum-compare]
+         if (status != CUDNN_STATUS_SUCCESS)
+                    ^~
+./src/dark_cuda.c: In function ‘pre_allocate_pinned_memory’:
+./src/dark_cuda.c:276:40: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]
+         printf("pre_allocate: size = %Iu MB, num_of_blocks = %Iu, block_size = %Iu MB \n",
+                                      ~~^
+                                      %Ilu
+             size / (1024*1024), num_of_blocks, pinned_block_size / (1024 * 1024));
+             ~~~~~~~~~~~~~~~~~~          
+./src/dark_cuda.c:276:64: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘size_t {aka const long unsigned int}’ [-Wformat=]
+         printf("pre_allocate: size = %Iu MB, num_of_blocks = %Iu, block_size = %Iu MB \n",
+                                                              ~~^
+                                                              %Ilu
+./src/dark_cuda.c:276:82: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘long unsigned int’ [-Wformat=]
+         printf("pre_allocate: size = %Iu MB, num_of_blocks = %Iu, block_size = %Iu MB \n",
+                                                                                ~~^
+                                                                                %Ilu
+./src/dark_cuda.c:286:37: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘size_t {aka const long unsigned int}’ [-Wformat=]
+                 printf(" Allocated %d pinned block \n", pinned_block_size);
+                                    ~^
+                                    %ld
+./src/dark_cuda.c: In function ‘cuda_make_array_pinned_preallocated’:
+./src/dark_cuda.c:307:43: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘size_t {aka long unsigned int}’ [-Wformat=]
+             printf("\n Pinned block_id = %d, filled = %f %% \n", pinned_block_id, filled);
+                                          ~^
+                                          %ld
+./src/dark_cuda.c:322:64: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]
+             printf("Try to allocate new pinned memory, size = %d MB \n", size / (1024 * 1024));
+                                                               ~^         ~~~~~~~~~~~~~~~~~~~~
+                                                               %ld
+./src/dark_cuda.c:328:63: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]
+             printf("Try to allocate new pinned BLOCK, size = %d MB \n", size / (1024 * 1024));
+                                                              ~^         ~~~~~~~~~~~~~~~~~~~~
+                                                              %ld
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/convolutional_layer.c -o obj/convolutional_layer.o
+./src/convolutional_layer.c: In function ‘forward_convolutional_layer’:
+./src/convolutional_layer.c:1204:32: warning: unused variable ‘t_intput_size’ [-Wunused-variable]
+                         size_t t_intput_size = binary_transpose_align_input(k, n, state.workspace, &l.t_bit_input, ldb_align, l.bit_align);
+                                ^~~~~~~~~~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/list.c -o obj/list.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/image.c -o obj/image.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/activations.c -o obj/activations.o
+./src/activations.c: In function ‘activate’:
+./src/activations.c:78:5: warning: enumeration value ‘RELU6’ not handled in switch [-Wswitch]
+     switch(a){
+     ^~~~~~
+./src/activations.c:78:5: warning: enumeration value ‘SWISH’ not handled in switch [-Wswitch]
+./src/activations.c:78:5: warning: enumeration value ‘MISH’ not handled in switch [-Wswitch]
+./src/activations.c:78:5: warning: enumeration value ‘NORM_CHAN’ not handled in switch [-Wswitch]
+./src/activations.c:78:5: warning: enumeration value ‘NORM_CHAN_SOFTMAX’ not handled in switch [-Wswitch]
+./src/activations.c:78:5: warning: enumeration value ‘NORM_CHAN_SOFTMAX_MAXVAL’ not handled in switch [-Wswitch]
+./src/activations.c: In function ‘gradient’:
+./src/activations.c:289:5: warning: enumeration value ‘SWISH’ not handled in switch [-Wswitch]
+     switch(a){
+     ^~~~~~
+./src/activations.c:289:5: warning: enumeration value ‘MISH’ not handled in switch [-Wswitch]
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/im2col.c -o obj/im2col.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/col2im.c -o obj/col2im.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/blas.c -o obj/blas.o
+./src/blas.c: In function ‘backward_shortcut_multilayer_cpu’:
+./src/blas.c:207:21: warning: unused variable ‘out_index’ [-Wunused-variable]
+                 int out_index = id;
+                     ^~~~~~~~~
+./src/blas.c: In function ‘grad_contrastive_loss_positive’:
+./src/blas.c:590:81: warning: format ‘%f’ expects argument of type ‘double’, but argument 3 has type ‘int’ [-Wformat=]
+         fprintf(stderr, " Error: N == 0 || temperature == 0 || vec_len == 0. N=%f, temperature=%f, vec_len=%f \n", N, temperature, vec_len);
+                                                                                ~^
+                                                                                %d
+./src/blas.c: In function ‘grad_contrastive_loss_negative’:
+./src/blas.c:627:81: warning: format ‘%f’ expects argument of type ‘double’, but argument 3 has type ‘int’ [-Wformat=]
+         fprintf(stderr, " Error: N == 0 || temperature == 0 || vec_len == 0. N=%f, temperature=%f, vec_len=%f \n", N, temperature, vec_len);
+                                                                                ~^
+                                                                                %d
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/crop_layer.c -o obj/crop_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/dropout_layer.c -o obj/dropout_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/maxpool_layer.c -o obj/maxpool_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/softmax_layer.c -o obj/softmax_layer.o
+./src/softmax_layer.c: In function ‘forward_contrastive_layer’:
+./src/softmax_layer.c:185:23: warning: variable ‘max_truth’ set but not used [-Wunused-but-set-variable]
+                 float max_truth = 0;
+                       ^~~~~~~~~
+./src/softmax_layer.c:230:15: warning: unused variable ‘same’ [-Wunused-variable]
+         float same = l.cos_sim[b*l.batch + b];
+               ^~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/data.c -o obj/data.o
+./src/data.c: In function ‘load_data_detection’:
+./src/data.c:1271:24: warning: unused variable ‘x’ [-Wunused-variable]
+                 int k, x, y;
+                        ^
+./src/data.c:1072:43: warning: variable ‘r_scale’ set but not used [-Wunused-but-set-variable]
+     float r1 = 0, r2 = 0, r3 = 0, r4 = 0, r_scale = 0;
+                                           ^~~~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/matrix.c -o obj/matrix.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/network.c -o obj/network.o
+./src/network.c: In function ‘resize_network’:
+./src/network.c:615:42: warning: passing argument 1 of ‘cudaHostAlloc’ from incompatible pointer type [-Wincompatible-pointer-types]
+         if (cudaSuccess == cudaHostAlloc(&net->input_pinned_cpu, size * sizeof(float), cudaHostRegisterMapped))
+                                          ^
+In file included from /usr/local/cuda/include/cuda_runtime.h:96:0,
+                 from include/darknet.h:41,
+                 from ./src/network.c:1:
+/usr/local/cuda/include/cuda_runtime_api.h:4391:39: note: expected ‘void **’ but argument is of type ‘float **’
+ extern __host__ cudaError_t CUDARTAPI cudaHostAlloc(void **pHost, size_t size, unsigned int flags);
+                                       ^~~~~~~~~~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/connected_layer.c -o obj/connected_layer.o
+./src/connected_layer.c: In function ‘forward_connected_layer_gpu’:
+./src/connected_layer.c:346:11: warning: unused variable ‘one’ [-Wunused-variable]
+     float one = 1;    // alpha[0], beta[0]
+           ^~~
+./src/connected_layer.c:344:13: warning: unused variable ‘c’ [-Wunused-variable]
+     float * c = l.output_gpu;
+             ^
+./src/connected_layer.c:343:13: warning: unused variable ‘b’ [-Wunused-variable]
+     float * b = l.weights_gpu;
+             ^
+./src/connected_layer.c:342:13: warning: unused variable ‘a’ [-Wunused-variable]
+     float * a = state.input;
+             ^
+./src/connected_layer.c:341:9: warning: unused variable ‘n’ [-Wunused-variable]
+     int n = l.outputs;
+         ^
+./src/connected_layer.c:340:9: warning: unused variable ‘k’ [-Wunused-variable]
+     int k = l.inputs;
+         ^
+./src/connected_layer.c:339:9: warning: unused variable ‘m’ [-Wunused-variable]
+     int m = l.batch;
+         ^
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/cost_layer.c -o obj/cost_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/parser.c -o obj/parser.o
+./src/parser.c: In function ‘parse_network_cfg_custom’:
+./src/parser.c:1612:42: warning: passing argument 1 of ‘cudaHostAlloc’ from incompatible pointer type [-Wincompatible-pointer-types]
+         if (cudaSuccess == cudaHostAlloc(&net.input_pinned_cpu, size * sizeof(float), cudaHostRegisterMapped)) net.input_pinned_cpu_flag = 1;
+                                          ^
+In file included from /usr/local/cuda/include/cuda_runtime.h:96:0,
+                 from include/darknet.h:41,
+                 from ./src/activations.h:3,
+                 from ./src/activation_layer.h:4,
+                 from ./src/parser.c:6:
+/usr/local/cuda/include/cuda_runtime_api.h:4391:39: note: expected ‘void **’ but argument is of type ‘float **’
+ extern __host__ cudaError_t CUDARTAPI cudaHostAlloc(void **pHost, size_t size, unsigned int flags);
+                                       ^~~~~~~~~~~~~
+./src/parser.c: In function ‘get_classes_multipliers’:
+./src/parser.c:405:29: warning: argument 1 range [18446744071562067968, 18446744073709551615] exceeds maximum object size 9223372036854775807 [-Walloc-size-larger-than=]
+         classes_multipliers = (float *)calloc(classes_counters, sizeof(float));
+         ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./src/parser.c:3:0:
+/usr/include/stdlib.h:541:14: note: in a call to allocation function ‘calloc’ declared here
+ extern void *calloc (size_t __nmemb, size_t __size)
+              ^~~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/option_list.c -o obj/option_list.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/darknet.c -o obj/darknet.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/detection_layer.c -o obj/detection_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/captcha.c -o obj/captcha.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/route_layer.c -o obj/route_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/writing.c -o obj/writing.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/box.c -o obj/box.o
+./src/box.c: In function ‘box_iou_kind’:
+./src/box.c:154:5: warning: enumeration value ‘MSE’ not handled in switch [-Wswitch]
+     switch(iou_kind) {
+     ^~~~~~
+./src/box.c: In function ‘diounms_sort’:
+./src/box.c:898:27: warning: unused variable ‘beta_prob’ [-Wunused-variable]
+                     float beta_prob = pow(dets[j].prob[k], 2) / sum_prob;
+                           ^~~~~~~~~
+./src/box.c:897:27: warning: unused variable ‘alpha_prob’ [-Wunused-variable]
+                     float alpha_prob = pow(dets[i].prob[k], 2) / sum_prob;
+                           ^~~~~~~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/nightmare.c -o obj/nightmare.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/normalization_layer.c -o obj/normalization_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/avgpool_layer.c -o obj/avgpool_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/coco.c -o obj/coco.o
+./src/coco.c: In function ‘validate_coco_recall’:
+./src/coco.c:248:11: warning: unused variable ‘base’ [-Wunused-variable]
+     char *base = "results/comp4_det_test_";
+           ^~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/dice.c -o obj/dice.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/yolo.c -o obj/yolo.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/detector.c -o obj/detector.o
+./src/detector.c: In function ‘print_cocos’:
+./src/detector.c:458:29: warning: format not a string literal and no format arguments [-Wformat-security]
+                 fprintf(fp, buff);
+                             ^~~~
+./src/detector.c: In function ‘eliminate_bdd’:
+./src/detector.c:551:21: warning: statement with no effect [-Wunused-value]
+                     for (k; buf[k + n] != '\0'; k++)
+                     ^~~
+./src/detector.c: In function ‘validate_detector’:
+./src/detector.c:664:13: warning: unused variable ‘mkd2’ [-Wunused-variable]
+         int mkd2 = make_directory(buff2, 0777);
+             ^~~~
+./src/detector.c:662:13: warning: unused variable ‘mkd’ [-Wunused-variable]
+         int mkd = make_directory(buff, 0777);
+             ^~~
+./src/detector.c: In function ‘validate_detector_map’:
+./src/detector.c:1283:15: warning: unused variable ‘class_recall’ [-Wunused-variable]
+         float class_recall = (float)tp_for_thresh_per_class[i] / ((float)tp_for_thresh_per_class[i] + (float)(truth_classes_count[i] - tp_for_thresh_per_class[i]));
+               ^~~~~~~~~~~~
+./src/detector.c:1282:15: warning: unused variable ‘class_precision’ [-Wunused-variable]
+         float class_precision = (float)tp_for_thresh_per_class[i] / ((float)tp_for_thresh_per_class[i] + (float)fp_for_thresh_per_class[i]);
+               ^~~~~~~~~~~~~~~
+./src/detector.c: In function ‘draw_object’:
+./src/detector.c:1799:19: warning: unused variable ‘inv_loss’ [-Wunused-variable]
+             float inv_loss = 1.0 / max_val_cmp(0.01, avg_loss);
+                   ^~~~~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/layer.c -o obj/layer.o
+./src/layer.c: In function ‘free_layer_custom’:
+./src/layer.c:201:68: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+     if (l.delta_gpu && (l.optimized_memory < 1 || l.keep_delta_gpu && l.optimized_memory < 3)) cuda_free(l.delta_gpu), l.delta_gpu = NULL;
+                                                   ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/compare.c -o obj/compare.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/classifier.c -o obj/classifier.o
+./src/classifier.c: In function ‘train_classifier’:
+./src/classifier.c:145:9: warning: unused variable ‘count’ [-Wunused-variable]
+     int count = 0;
+         ^~~~~
+./src/classifier.c: In function ‘predict_classifier’:
+./src/classifier.c:846:13: warning: unused variable ‘time’ [-Wunused-variable]
+     clock_t time;
+             ^~~~
+./src/classifier.c: In function ‘demo_classifier’:
+./src/classifier.c:1276:49: warning: unused variable ‘tval_result’ [-Wunused-variable]
+         struct timeval tval_before, tval_after, tval_result;
+                                                 ^~~~~~~~~~~
+./src/classifier.c:1276:37: warning: unused variable ‘tval_after’ [-Wunused-variable]
+         struct timeval tval_before, tval_after, tval_result;
+                                     ^~~~~~~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/local_layer.c -o obj/local_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/swag.c -o obj/swag.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/shortcut_layer.c -o obj/shortcut_layer.o
+./src/shortcut_layer.c: In function ‘make_shortcut_layer’:
+./src/shortcut_layer.c:55:15: warning: unused variable ‘scale’ [-Wunused-variable]
+         float scale = sqrt(2. / l.nweights);
+               ^~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/activation_layer.c -o obj/activation_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/rnn_layer.c -o obj/rnn_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/gru_layer.c -o obj/gru_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/rnn.c -o obj/rnn.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/rnn_vid.c -o obj/rnn_vid.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/crnn_layer.c -o obj/crnn_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/demo.c -o obj/demo.o
+./src/demo.c: In function ‘detect_in_thread’:
+./src/demo.c:100:16: warning: unused variable ‘prediction’ [-Wunused-variable]
+         float *prediction = network_predict(net, X);
+                ^~~~~~~~~~
+./src/demo.c:98:15: warning: unused variable ‘l’ [-Wunused-variable]
+         layer l = net.layers[net.n - 1];
+               ^
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/tag.c -o obj/tag.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/cifar.c -o obj/cifar.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/go.c -o obj/go.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/batchnorm_layer.c -o obj/batchnorm_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/art.c -o obj/art.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/region_layer.c -o obj/region_layer.o
+./src/region_layer.c: In function ‘resize_region_layer’:
+./src/region_layer.c:58:9: warning: unused variable ‘old_h’ [-Wunused-variable]
+     int old_h = l->h;
+         ^~~~~
+./src/region_layer.c:57:9: warning: unused variable ‘old_w’ [-Wunused-variable]
+     int old_w = l->w;
+         ^~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/reorg_layer.c -o obj/reorg_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/reorg_old_layer.c -o obj/reorg_old_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/super.c -o obj/super.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/voxel.c -o obj/voxel.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/tree.c -o obj/tree.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/yolo_layer.c -o obj/yolo_layer.o
+./src/yolo_layer.c: In function ‘make_yolo_layer’:
+./src/yolo_layer.c:62:38: warning: passing argument 1 of ‘cudaHostAlloc’ from incompatible pointer type [-Wincompatible-pointer-types]
+     if (cudaSuccess == cudaHostAlloc(&l.output, batch*l.outputs*sizeof(float), cudaHostRegisterMapped)) l.output_pinned = 1;
+                                      ^
+In file included from /usr/local/cuda/include/cuda_runtime.h:96:0,
+                 from include/darknet.h:41,
+                 from ./src/activations.h:3,
+                 from ./src/layer.h:4,
+                 from ./src/yolo_layer.h:5,
+                 from ./src/yolo_layer.c:1:
+/usr/local/cuda/include/cuda_runtime_api.h:4391:39: note: expected ‘void **’ but argument is of type ‘float **’
+ extern __host__ cudaError_t CUDARTAPI cudaHostAlloc(void **pHost, size_t size, unsigned int flags);
+                                       ^~~~~~~~~~~~~
+./src/yolo_layer.c:69:38: warning: passing argument 1 of ‘cudaHostAlloc’ from incompatible pointer type [-Wincompatible-pointer-types]
+     if (cudaSuccess == cudaHostAlloc(&l.delta, batch*l.outputs*sizeof(float), cudaHostRegisterMapped)) l.delta_pinned = 1;
+                                      ^
+In file included from /usr/local/cuda/include/cuda_runtime.h:96:0,
+                 from include/darknet.h:41,
+                 from ./src/activations.h:3,
+                 from ./src/layer.h:4,
+                 from ./src/yolo_layer.h:5,
+                 from ./src/yolo_layer.c:1:
+/usr/local/cuda/include/cuda_runtime_api.h:4391:39: note: expected ‘void **’ but argument is of type ‘float **’
+ extern __host__ cudaError_t CUDARTAPI cudaHostAlloc(void **pHost, size_t size, unsigned int flags);
+                                       ^~~~~~~~~~~~~
+./src/yolo_layer.c: In function ‘resize_yolo_layer’:
+./src/yolo_layer.c:96:42: warning: passing argument 1 of ‘cudaHostAlloc’ from incompatible pointer type [-Wincompatible-pointer-types]
+         if (cudaSuccess != cudaHostAlloc(&l->output, l->batch*l->outputs * sizeof(float), cudaHostRegisterMapped)) {
+                                          ^
+In file included from /usr/local/cuda/include/cuda_runtime.h:96:0,
+                 from include/darknet.h:41,
+                 from ./src/activations.h:3,
+                 from ./src/layer.h:4,
+                 from ./src/yolo_layer.h:5,
+                 from ./src/yolo_layer.c:1:
+/usr/local/cuda/include/cuda_runtime_api.h:4391:39: note: expected ‘void **’ but argument is of type ‘float **’
+ extern __host__ cudaError_t CUDARTAPI cudaHostAlloc(void **pHost, size_t size, unsigned int flags);
+                                       ^~~~~~~~~~~~~
+./src/yolo_layer.c:105:42: warning: passing argument 1 of ‘cudaHostAlloc’ from incompatible pointer type [-Wincompatible-pointer-types]
+         if (cudaSuccess != cudaHostAlloc(&l->delta, l->batch*l->outputs * sizeof(float), cudaHostRegisterMapped)) {
+                                          ^
+In file included from /usr/local/cuda/include/cuda_runtime.h:96:0,
+                 from include/darknet.h:41,
+                 from ./src/activations.h:3,
+                 from ./src/layer.h:4,
+                 from ./src/yolo_layer.h:5,
+                 from ./src/yolo_layer.c:1:
+/usr/local/cuda/include/cuda_runtime_api.h:4391:39: note: expected ‘void **’ but argument is of type ‘float **’
+ extern __host__ cudaError_t CUDARTAPI cudaHostAlloc(void **pHost, size_t size, unsigned int flags);
+                                       ^~~~~~~~~~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/gaussian_yolo_layer.c -o obj/gaussian_yolo_layer.o
+./src/gaussian_yolo_layer.c: In function ‘make_gaussian_yolo_layer’:
+./src/gaussian_yolo_layer.c:71:38: warning: passing argument 1 of ‘cudaHostAlloc’ from incompatible pointer type [-Wincompatible-pointer-types]
+     if (cudaSuccess == cudaHostAlloc(&l.output, batch*l.outputs * sizeof(float), cudaHostRegisterMapped)) l.output_pinned = 1;
+                                      ^
+In file included from /usr/local/cuda/include/cuda_runtime.h:96:0,
+                 from include/darknet.h:41,
+                 from ./src/gaussian_yolo_layer.h:5,
+                 from ./src/gaussian_yolo_layer.c:7:
+/usr/local/cuda/include/cuda_runtime_api.h:4391:39: note: expected ‘void **’ but argument is of type ‘float **’
+ extern __host__ cudaError_t CUDARTAPI cudaHostAlloc(void **pHost, size_t size, unsigned int flags);
+                                       ^~~~~~~~~~~~~
+./src/gaussian_yolo_layer.c:78:38: warning: passing argument 1 of ‘cudaHostAlloc’ from incompatible pointer type [-Wincompatible-pointer-types]
+     if (cudaSuccess == cudaHostAlloc(&l.delta, batch*l.outputs * sizeof(float), cudaHostRegisterMapped)) l.delta_pinned = 1;
+                                      ^
+In file included from /usr/local/cuda/include/cuda_runtime.h:96:0,
+                 from include/darknet.h:41,
+                 from ./src/gaussian_yolo_layer.h:5,
+                 from ./src/gaussian_yolo_layer.c:7:
+/usr/local/cuda/include/cuda_runtime_api.h:4391:39: note: expected ‘void **’ but argument is of type ‘float **’
+ extern __host__ cudaError_t CUDARTAPI cudaHostAlloc(void **pHost, size_t size, unsigned int flags);
+                                       ^~~~~~~~~~~~~
+./src/gaussian_yolo_layer.c: In function ‘resize_gaussian_yolo_layer’:
+./src/gaussian_yolo_layer.c:110:42: warning: passing argument 1 of ‘cudaHostAlloc’ from incompatible pointer type [-Wincompatible-pointer-types]
+         if (cudaSuccess != cudaHostAlloc(&l->output, l->batch*l->outputs * sizeof(float), cudaHostRegisterMapped)) {
+                                          ^
+In file included from /usr/local/cuda/include/cuda_runtime.h:96:0,
+                 from include/darknet.h:41,
+                 from ./src/gaussian_yolo_layer.h:5,
+                 from ./src/gaussian_yolo_layer.c:7:
+/usr/local/cuda/include/cuda_runtime_api.h:4391:39: note: expected ‘void **’ but argument is of type ‘float **’
+ extern __host__ cudaError_t CUDARTAPI cudaHostAlloc(void **pHost, size_t size, unsigned int flags);
+                                       ^~~~~~~~~~~~~
+./src/gaussian_yolo_layer.c:119:42: warning: passing argument 1 of ‘cudaHostAlloc’ from incompatible pointer type [-Wincompatible-pointer-types]
+         if (cudaSuccess != cudaHostAlloc(&l->delta, l->batch*l->outputs * sizeof(float), cudaHostRegisterMapped)) {
+                                          ^
+In file included from /usr/local/cuda/include/cuda_runtime.h:96:0,
+                 from include/darknet.h:41,
+                 from ./src/gaussian_yolo_layer.h:5,
+                 from ./src/gaussian_yolo_layer.c:7:
+/usr/local/cuda/include/cuda_runtime_api.h:4391:39: note: expected ‘void **’ but argument is of type ‘float **’
+ extern __host__ cudaError_t CUDARTAPI cudaHostAlloc(void **pHost, size_t size, unsigned int flags);
+                                       ^~~~~~~~~~~~~
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/upsample_layer.c -o obj/upsample_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/lstm_layer.c -o obj/lstm_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/conv_lstm_layer.c -o obj/conv_lstm_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/scale_channels_layer.c -o obj/scale_channels_layer.o
+gcc -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include -c ./src/sam_layer.c -o obj/sam_layer.o
+nvcc -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_50,code=[sm_50,compute_50] -gencode arch=compute_52,code=[sm_52,compute_52] -gencode arch=compute_61,code=[sm_61,compute_61] -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN --compiler-options "-Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include" -c ./src/convolutional_kernels.cu -o obj/convolutional_kernels.o
+./src/convolutional_kernels.cu: In function ‘void backward_convolutional_layer_gpu(convolutional_layer, network_state)’:
+./src/convolutional_kernels.cu:803:40: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+                 if (*state.net.max_output16_size < l.inputs) {
+                 ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+./src/convolutional_kernels.cu:839:40: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+                 if (*state.net.max_output16_size < l.nweights) {
+                 ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+nvcc -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_50,code=[sm_50,compute_50] -gencode arch=compute_52,code=[sm_52,compute_52] -gencode arch=compute_61,code=[sm_61,compute_61] -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN --compiler-options "-Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include" -c ./src/activation_kernels.cu -o obj/activation_kernels.o
+./src/activation_kernels.cu(263): warning: variable "MISH_THRESHOLD" was declared but never referenced
+
+./src/activation_kernels.cu(263): warning: variable "MISH_THRESHOLD" was declared but never referenced
+
+./src/activation_kernels.cu(263): warning: variable "MISH_THRESHOLD" was declared but never referenced
+
+./src/activation_kernels.cu(263): warning: variable "MISH_THRESHOLD" was declared but never referenced
+
+./src/activation_kernels.cu(263): warning: variable "MISH_THRESHOLD" was declared but never referenced
+
+nvcc -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_50,code=[sm_50,compute_50] -gencode arch=compute_52,code=[sm_52,compute_52] -gencode arch=compute_61,code=[sm_61,compute_61] -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN --compiler-options "-Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include" -c ./src/im2col_kernels.cu -o obj/im2col_kernels.o
+./src/im2col_kernels.cu:125:18: warning: "/*" within comment [-Wcomment]
+                 //*data_col_ptr = (h >= 0 && w >= 0 && h < height && w < width) ?
+                   
+./src/im2col_kernels.cu:1178:6: warning: "/*" within comment [-Wcomment]
+     //*((uint64_t *)(A_s + (local_i*lda + k) / 8)) = *((uint64_t *)(A + (i_cur*lda + k) / 8));    // weights
+       
+./src/im2col_kernels.cu:125:18: warning: "/*" within comment [-Wcomment]
+                 //*data_col_ptr = (h >= 0 && w >= 0 && h < height && w < width) ?
+                   
+./src/im2col_kernels.cu:1178:6: warning: "/*" within comment [-Wcomment]
+     //*((uint64_t *)(A_s + (local_i*lda + k) / 8)) = *((uint64_t *)(A + (i_cur*lda + k) / 8));    // weights
+       
+./src/im2col_kernels.cu:125:18: warning: "/*" within comment [-Wcomment]
+                 //*data_col_ptr = (h >= 0 && w >= 0 && h < height && w < width) ?
+                   
+./src/im2col_kernels.cu:1178:6: warning: "/*" within comment [-Wcomment]
+     //*((uint64_t *)(A_s + (local_i*lda + k) / 8)) = *((uint64_t *)(A + (i_cur*lda + k) / 8));    // weights
+       
+./src/im2col_kernels.cu:125:18: warning: "/*" within comment [-Wcomment]
+                 //*data_col_ptr = (h >= 0 && w >= 0 && h < height && w < width) ?
+                   
+./src/im2col_kernels.cu:1178:6: warning: "/*" within comment [-Wcomment]
+     //*((uint64_t *)(A_s + (local_i*lda + k) / 8)) = *((uint64_t *)(A + (i_cur*lda + k) / 8));    // weights
+       
+./src/im2col_kernels.cu:125:18: warning: "/*" within comment [-Wcomment]
+                 //*data_col_ptr = (h >= 0 && w >= 0 && h < height && w < width) ?
+                   
+./src/im2col_kernels.cu:1178:6: warning: "/*" within comment [-Wcomment]
+     //*((uint64_t *)(A_s + (local_i*lda + k) / 8)) = *((uint64_t *)(A + (i_cur*lda + k) / 8));    // weights
+       
+./src/im2col_kernels.cu:125:18: warning: "/*" within comment [-Wcomment]
+                 //*data_col_ptr = (h >= 0 && w >= 0 && h < height && w < width) ?
+                   
+./src/im2col_kernels.cu:1178:6: warning: "/*" within comment [-Wcomment]
+     //*((uint64_t *)(A_s + (local_i*lda + k) / 8)) = *((uint64_t *)(A + (i_cur*lda + k) / 8));    // weights
+       
+nvcc -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_50,code=[sm_50,compute_50] -gencode arch=compute_52,code=[sm_52,compute_52] -gencode arch=compute_61,code=[sm_61,compute_61] -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN --compiler-options "-Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include" -c ./src/col2im_kernels.cu -o obj/col2im_kernels.o
+nvcc -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_50,code=[sm_50,compute_50] -gencode arch=compute_52,code=[sm_52,compute_52] -gencode arch=compute_61,code=[sm_61,compute_61] -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN --compiler-options "-Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include" -c ./src/blas_kernels.cu -o obj/blas_kernels.o
+./src/blas_kernels.cu(1086): warning: variable "out_index" was declared but never referenced
+
+./src/blas_kernels.cu(1130): warning: variable "step" was set but never used
+
+./src/blas_kernels.cu(1736): warning: variable "stage_id" was declared but never referenced
+
+./src/blas_kernels.cu(1086): warning: variable "out_index" was declared but never referenced
+
+./src/blas_kernels.cu(1130): warning: variable "step" was set but never used
+
+./src/blas_kernels.cu(1736): warning: variable "stage_id" was declared but never referenced
+
+./src/blas_kernels.cu(1086): warning: variable "out_index" was declared but never referenced
+
+./src/blas_kernels.cu(1130): warning: variable "step" was set but never used
+
+./src/blas_kernels.cu(1736): warning: variable "stage_id" was declared but never referenced
+
+./src/blas_kernels.cu(1086): warning: variable "out_index" was declared but never referenced
+
+./src/blas_kernels.cu(1130): warning: variable "step" was set but never used
+
+./src/blas_kernels.cu(1736): warning: variable "stage_id" was declared but never referenced
+
+./src/blas_kernels.cu(1086): warning: variable "out_index" was declared but never referenced
+
+./src/blas_kernels.cu(1130): warning: variable "step" was set but never used
+
+./src/blas_kernels.cu(1736): warning: variable "stage_id" was declared but never referenced
+
+./src/blas_kernels.cu: In function ‘void backward_shortcut_multilayer_gpu(int, int, int, int*, float**, float*, float*, float*, float*, int, float*, float**, WEIGHTS_NORMALIZATION_T)’:
+./src/blas_kernels.cu:1130:5: warning: variable ‘step’ set but not used [-Wunused-but-set-variable]
+     int step = 0;
+     ^~~~
+nvcc -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_50,code=[sm_50,compute_50] -gencode arch=compute_52,code=[sm_52,compute_52] -gencode arch=compute_61,code=[sm_61,compute_61] -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN --compiler-options "-Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include" -c ./src/crop_layer_kernels.cu -o obj/crop_layer_kernels.o
+nvcc -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_50,code=[sm_50,compute_50] -gencode arch=compute_52,code=[sm_52,compute_52] -gencode arch=compute_61,code=[sm_61,compute_61] -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN --compiler-options "-Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include" -c ./src/dropout_layer_kernels.cu -o obj/dropout_layer_kernels.o
+./src/dropout_layer_kernels.cu(140): warning: variable "cur_scale" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(245): warning: variable "cur_scale" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(262): warning: variable "block_prob" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(140): warning: variable "cur_scale" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(245): warning: variable "cur_scale" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(262): warning: variable "block_prob" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(140): warning: variable "cur_scale" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(245): warning: variable "cur_scale" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(262): warning: variable "block_prob" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(140): warning: variable "cur_scale" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(245): warning: variable "cur_scale" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(262): warning: variable "block_prob" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(140): warning: variable "cur_scale" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(245): warning: variable "cur_scale" was declared but never referenced
+
+./src/dropout_layer_kernels.cu(262): warning: variable "block_prob" was declared but never referenced
+
+nvcc -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_50,code=[sm_50,compute_50] -gencode arch=compute_52,code=[sm_52,compute_52] -gencode arch=compute_61,code=[sm_61,compute_61] -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN --compiler-options "-Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include" -c ./src/maxpool_layer_kernels.cu -o obj/maxpool_layer_kernels.o
+nvcc -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_50,code=[sm_50,compute_50] -gencode arch=compute_52,code=[sm_52,compute_52] -gencode arch=compute_61,code=[sm_61,compute_61] -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN --compiler-options "-Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include" -c ./src/network_kernels.cu -o obj/network_kernels.o
+./src/network_kernels.cu(363): warning: variable "l" was declared but never referenced
+
+./src/network_kernels.cu(384): warning: variable "im" was set but never used
+
+./src/network_kernels.cu(363): warning: variable "l" was declared but never referenced
+
+./src/network_kernels.cu(384): warning: variable "im" was set but never used
+
+./src/network_kernels.cu(363): warning: variable "l" was declared but never referenced
+
+./src/network_kernels.cu(384): warning: variable "im" was set but never used
+
+./src/network_kernels.cu(363): warning: variable "l" was declared but never referenced
+
+./src/network_kernels.cu(384): warning: variable "im" was set but never used
+
+./src/network_kernels.cu(363): warning: variable "l" was declared but never referenced
+
+./src/network_kernels.cu(384): warning: variable "im" was set but never used
+
+./src/network_kernels.cu: In function ‘float train_network_datum_gpu(network, float*, float*)’:
+./src/network_kernels.cu:363:7: warning: variable ‘l’ set but not used [-Wunused-but-set-variable]
+         layer l = net.layers[net.n - 1];
+       ^
+./src/network_kernels.cu:384:7: warning: variable ‘im’ set but not used [-Wunused-but-set-variable]
+         image im;
+       ^ 
+nvcc -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_50,code=[sm_50,compute_50] -gencode arch=compute_52,code=[sm_52,compute_52] -gencode arch=compute_61,code=[sm_61,compute_61] -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN --compiler-options "-Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include" -c ./src/avgpool_layer_kernels.cu -o obj/avgpool_layer_kernels.o
+g++ -std=c++11 -std=c++11 -Iinclude/ -I3rdparty/stb/include -DOPENCV `pkg-config --cflags opencv4 2> /dev/null || pkg-config --cflags opencv` -DGPU -I/usr/local/cuda/include/ -DCUDNN -Wall -Wfatal-errors -Wno-unused-result -Wno-unknown-pragmas -fPIC -Ofast -DOPENCV -DGPU -DCUDNN -I/usr/local/cudnn/include obj/image_opencv.o obj/http_stream.o obj/gemm.o obj/utils.o obj/dark_cuda.o obj/convolutional_layer.o obj/list.o obj/image.o obj/activations.o obj/im2col.o obj/col2im.o obj/blas.o obj/crop_layer.o obj/dropout_layer.o obj/maxpool_layer.o obj/softmax_layer.o obj/data.o obj/matrix.o obj/network.o obj/connected_layer.o obj/cost_layer.o obj/parser.o obj/option_list.o obj/darknet.o obj/detection_layer.o obj/captcha.o obj/route_layer.o obj/writing.o obj/box.o obj/nightmare.o obj/normalization_layer.o obj/avgpool_layer.o obj/coco.o obj/dice.o obj/yolo.o obj/detector.o obj/layer.o obj/compare.o obj/classifier.o obj/local_layer.o obj/swag.o obj/shortcut_layer.o obj/activation_layer.o obj/rnn_layer.o obj/gru_layer.o obj/rnn.o obj/rnn_vid.o obj/crnn_layer.o obj/demo.o obj/tag.o obj/cifar.o obj/go.o obj/batchnorm_layer.o obj/art.o obj/region_layer.o obj/reorg_layer.o obj/reorg_old_layer.o obj/super.o obj/voxel.o obj/tree.o obj/yolo_layer.o obj/gaussian_yolo_layer.o obj/upsample_layer.o obj/lstm_layer.o obj/conv_lstm_layer.o obj/scale_channels_layer.o obj/sam_layer.o obj/convolutional_kernels.o obj/activation_kernels.o obj/im2col_kernels.o obj/col2im_kernels.o obj/blas_kernels.o obj/crop_layer_kernels.o obj/dropout_layer_kernels.o obj/maxpool_layer_kernels.o obj/network_kernels.o obj/avgpool_layer_kernels.o -o darknet -lm -pthread `pkg-config --libs opencv4 2> /dev/null || pkg-config --libs opencv` -L/usr/local/cuda/lib64 -lcuda -lcudart -lcublas -lcurand -L/usr/local/cudnn/lib64 -lcudnn -lstdc++
